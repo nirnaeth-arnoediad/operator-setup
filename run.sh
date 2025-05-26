@@ -25,6 +25,6 @@ else
     _cmd=$1
     shift
     docker rm -f operator-cli > /dev/null 2>&1
-    docker run --name=operator-cli --env-file .env ${private_path} --platform linux/amd64 ${EO_OPERATOR_CLI_IMAGE} "${_cmd} $@"
+    docker run --name=eo-operator-cli --env-file .env ${private_path} --platform linux/amd64 ${EO_OPERATOR_CLI_IMAGE} "${_cmd} $@"
 fi
 cd ..
