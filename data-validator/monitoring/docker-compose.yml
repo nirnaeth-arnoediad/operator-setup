@@ -27,7 +27,7 @@ services:
       - 8429:8429
     networks:
       - monitoring
-      - data-validator
+      - eo-data-validator
 
   node-exporter:
     image: prom/node-exporter:latest
