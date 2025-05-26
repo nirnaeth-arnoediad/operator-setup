@@ -2,7 +2,7 @@ version: "3.8"
 
 networks:
   data-validator:
-    name: data-validator
+    name: eo-data-validator
     driver: bridge
   monitoring:
     name: monitoring
