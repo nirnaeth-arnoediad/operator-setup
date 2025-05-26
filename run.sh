@@ -8,7 +8,7 @@ cwd=$(pwd)
 if [ -z "$EO_KEYSTORE_PATH" ]; then
     private_path="--env-file .private_key"
 else
-    private_path="--volume ${cwd}/${EO_KEYSTORE_PATH}:/app/eoracle/${EO_KEYSTORE_PATH}:rw"
+    private_path="--volume ${cwd}/${EO_KEYSTORE_PATH}:/app/eodata/${EO_KEYSTORE_PATH}:rw"
 fi
 
 if [ "$1" == "encrypt" ]; then

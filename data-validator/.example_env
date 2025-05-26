@@ -1,5 +1,5 @@
-EO_OPERATOR_CLI_IMAGE=eoracle/opr_cli:v0.0.12
-EO_DATA_VALIDATOR_IMAGE=eoracle/data-validator:latest
+EO_OPERATOR_CLI_IMAGE=eodata/opr_cli:v0.0.12
+EO_DATA_VALIDATOR_IMAGE=eodata/data-validator:latest
 EO_CHAIN_RPC_ENDPOINT=https://rpc.eo.app
 EO_CHAIN_WS_ENDPOINT=wss://rpc.eo.app/ws
 EO_REGISTRY_COORDINATOR=0x757E6f572AfD8E111bD913d35314B5472C051cA8

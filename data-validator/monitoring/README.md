@@ -26,5 +26,5 @@ This will make sure `prometheus` can scrape the metrics from `EO data fetcher` s
 
 
 #### Useful Dashboards
-We also provide a set of useful Grafana dashboards which would be useful for monitoring the Eoracle data fertcher service. You can find them [here](../dashboards).
+We also provide a set of useful Grafana dashboards which would be useful for monitoring the EO data fetcher service. You can find them [here](../dashboards).
 Once you have Grafana setup, feel free to import the dashboards.

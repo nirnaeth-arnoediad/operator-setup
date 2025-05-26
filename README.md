@@ -274,7 +274,7 @@ You should see something like
 # TYPE eigen_performance_score gauge
 eigen_performance_score{avs_name="EoracleDataValidator"} 100
 ...
-# HELP eoracle_health_check EOracle Health Check
+# HELP eoracle_health_check EO Health Check
 # TYPE eoracle_health_check gauge
 eoracle_health_check{avs_name="EoracleDataValidator", name="service"} 1
 eoracle_health_check{avs_name="EoracleDataValidator", name="polygon.io"} 1
