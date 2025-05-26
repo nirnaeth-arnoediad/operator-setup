@@ -1,4 +1,4 @@
-# eodata Operator Setup
+# EO Operator Setup
 This guide will walk you through the process of registering as an operator to EO AVS and running the EO software.
 
 ## Prerequisites
