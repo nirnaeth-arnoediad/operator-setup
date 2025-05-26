@@ -19,7 +19,7 @@ services:
     platform: linux/amd64
     restart: unless-stopped
     networks:
-      - data-validator
+      - eo-data-validator
 networks:
   data-validator:
     name: eo-data-validator
