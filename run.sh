@@ -19,7 +19,7 @@ if [ "$1" == "encrypt" ]; then
     echo "EO_ECDSA_PRIVATE_KEY=$2" > .private_key
     echo "EO_BLS_PRIVATE_KEY=$3" >> .private_key
     docker rm -f operator-cli > /dev/null 2>&1
-    docker run --name=operator-cli --env-file .env --env-file .private_key --platform linux/amd64 ${private_path} ${EO_OPERATOR_CLI_IMAGE} ${1}
+    docker run --name=eo-operator-cli --env-file .env --env-file .private_key --platform linux/amd64 ${private_path} ${EO_OPERATOR_CLI_IMAGE} ${1}
     rm .private_key > /dev/null 2>&1
 else 
     _cmd=$1
