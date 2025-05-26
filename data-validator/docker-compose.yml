@@ -22,4 +22,4 @@ services:
       - data-validator
 networks:
   data-validator:
-    name: data-validator
+    name: eo-data-validator
