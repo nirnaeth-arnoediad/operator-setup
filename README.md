@@ -294,7 +294,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 1m
     static_configs:
-      - targets: ['data-validator:<EO_PROMETHEUS_PORT>']
+      - targets: ['eo-data-validator:<EO_PROMETHEUS_PORT>']
 ```
 
 ### Start the monitoring stack
