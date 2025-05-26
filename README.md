@@ -1,5 +1,5 @@
-# eoracle Operator Setup
-This guide will walk you through the process of registering as an operator to eoracle AVS and running the eoracle software.
+# eodata Operator Setup
+This guide will walk you through the process of registering as an operator to EO AVS and running the EO software.
 
 ## Prerequisites
 1. **Registered Eigenlayer Operator Account:** Ensure you have a fully registered Eigenlayer operator account. If you don't have one, follow the steps in the [Eigenlayer User Guide](https://docs.eigenlayer.xyz/restaking-guides/restaking-user-guide) to create and fund your account.
@@ -18,18 +18,18 @@ This guide will walk you through the process of registering as an operator to eo
   * 9090 Prometheus 
 
 ## Operator Setup
-### ​Prepare Local eoracle data validator files
-Clone this [repo](https://github.com/Eoracle/Eoracle-operator-setup) and execute the following commands
+### ​Prepare Local EO data validator files
+Clone this [repo](https://github.com/eodata/operator-setup) and execute the following commands
 ```bash
-git clone https://github.com/Eoracle/Eoracle-operator-setup.git
-cd Eoracle-operator-setup
+git clone https://github.com/eodata/operator-setup.git
+cd operator-setup
 cp data-validator/.example_env data-validator/.env
 ```
-Copy `Eoracle-operator-setup/data-validator/.example_env` into `Eoracle-operator-setup/data-validator/.env`.  
-Edit the `Eoracle-operator-setup/data-validator/.env` and update the values for your setup
+Copy `operator-setup/data-validator/.example_env` into `operator-setup/data-validator/.env`.  
+Edit the `operator-setup/data-validator/.env` and update the values for your setup
 
 [**NOTE**]
-If you plan to operate eoracle on Holesky, then copy `.example_env_holesky` instead of `.example_env`.  
+If you plan to operate EO on Holesky, then copy `.example_env_holesky` instead of `.example_env`.  
 ```bash
 cp data/validator/.example_env_holesky data-validator/.env`
 ```
@@ -37,7 +37,7 @@ cp data/validator/.example_env_holesky data-validator/.env`
 ### Generate a BLS pair (recommended)
 The register process requires two sets of private keys: an ecdsa private key and a bls private key,  
 We recommend creating a new BLS pair for security reasons.
-If you want to create a new BLS pair, you can generate a new BLS pair that will be dedicated to eoracle
+If you want to create a new BLS pair, you can generate a new BLS pair that will be dedicated to EO
 ```bash
 ./run.sh generate-bls-key
 ```
@@ -57,15 +57,15 @@ EO_BLS_PRIVATE_KEY=<your ecdsa private key>
 EO_ECDSA_PRIVATE_KEY=<your bls private key>
 ```
 
-### Register with eoracle AVS
-Operators need to have a minimum of 32 ETH delegated to them to opt-in to eoracle. Execute the following command 
+### Register with EO AVS
+Operators need to have a minimum of 32 ETH delegated to them to opt-in to EO. Execute the following command 
 ```bash
 ./run.sh register
 ```
 
 The output should look like
 ```
-{"level":"info","ts":1712853423.629971,"caller":"logging/zap_logger.go:49","msg":"succesfully registered to eoracle AVS","address":"<your_address>","tx hash":"<your_tx_hash>"}
+{"level":"info","ts":1712853423.629971,"caller":"logging/zap_logger.go:49","msg":"succesfully registered to EO AVS","address":"<your_address>","tx hash":"<your_tx_hash>"}
 ```
 
 ### Troubleshooting the register command.
@@ -78,7 +78,7 @@ Please add EO_SALT=<salt_in_hex> field to your .env file and retry runnning regi
 (*) the EO_SALT should be in the following format EO_SALT=0x04 (even length hex number, and could be any number but must be even length)
 
 ### Generating an alias ECDSA address 
-Operators must declare another ECDSA address to use within the eoracle client. This isolates the Ethereum Eigenlayer operator private key from eoracle operations, protecting access to Ethereum assets.
+Operators must declare another ECDSA address to use within the EO client. This isolates the Ethereum Eigenlayer operator private key from EO operations, protecting access to Ethereum assets.
 You can import a private key or generate a new private key. To import , add `--ecdsa-private-key <value>` to the following command.
 ```bash
 ./run.sh generate-alias
@@ -91,8 +91,8 @@ You can import a private key or generate a new private key. To import , add `--e
 -rw-r--r--@ 1 <usr>  staff  491 Apr 11 20:18 ecdsaEncryptedWallet.json
 ```
 
-### Declare the alias in eoracle chain
-After generating the ECDSA alias address to use in eoracle chain, declare it using your Ethereum Eigenlayer identity, verifying the link between the two.
+### Declare the alias in EO chain
+After generating the ECDSA alias address to use in EO chain, declare it using your Ethereum Eigenlayer identity, verifying the link between the two.
 
 ```bash
 ./run.sh declare-alias
@@ -106,7 +106,7 @@ docker-entrypoint-oprcli.sh: Starting oprcli declare-alias
 ```
 
 
-### Checking the status of Eoracle operator AVS
+### Checking the status of EO operator AVS
 
 The following command will print the status of the operator
 
@@ -121,10 +121,10 @@ docker-entrypoint-oprcli.sh: Starting oprcli print-status
 {"level":"info","ts":1712824061.3466434,"caller":"logging/zap_logger.go:49","msg":"Operator stake update","stake":"<your_stake>","block number":1253026}
 ```
 
-### Deregister from Eoracle AVS
-The following command will unregister and opt you out of the Eoracle AVS
+### Deregister from EO AVS
+The following command will unregister and opt you out of the EO AVS
 ```bash
-cd Eoracle-operator-setup
+cd operator-setup
 ./run.sh deregister
 ```
 The output should look like
@@ -133,16 +133,16 @@ Deregistering operator with address <your address>
 Deregistered Operator with Coordinator at address 0xd8eA2939cE17316b7CA2F86b121EB9c7c94c39c0 with tx hash 0x0c3016d0560c717f730a2b32446af242d66b83937cc015a02f0536fa41da1988
 ```
 
-## Running eoracle AVS data validator
+## Running EO AVS data validator
 
-**eoracle operator Activation:** Ensure your account has been activated. In order to check your current status you can run the following (1 is activated, 0 is not). Stay tuned for activation windows on social media , for technical issues please contact the eoracle team [here](https://discord.gg/eoracle) on the operators-technical-help channel 
+**EO operator Activation:** Ensure your account has been activated. In order to check your current status you can run the following (1 is activated, 0 is not). Stay tuned for activation windows on social media , for technical issues please contact the EO team [here](https://discord.gg/eoracle) on the operators-technical-help channel 
 ```bash
-cast call 0x05a6f762f64Ac2ccE0588677317a0Ed8af9d0c16 "isValidatorActive(address validator)" <your alias address> -r https://rpc.eoracle.network | cast 2d
+cast call 0x05a6f762f64Ac2ccE0588677317a0Ed8af9d0c16 "isValidatorActive(address validator)" <your alias address> -r https://rpc.eo.app | cast 2d
 ```
 
 
 
-Note: Access to our client source code is currently restricted, however, interested parties may contact support@eoracle.io to review the client for security reasons. 
+Note: Access to our client source code is currently restricted, however, interested parties may contact <support@eo.app> to review the client for security reasons.
 
 
 ### Run using docker
@@ -152,15 +152,15 @@ cd data-validator
 docker compose up -d
 ```
 
-The command will start the data validator container. If you execute `docker ps` you should see an output indicating the `eoracle-data-validator` container has the " Up " status with ports assigned.
+The command will start the data validator container. If you execute `docker ps` you should see an output indicating the `data-validator` container has the " Up " status with ports assigned.
 You may view the container logs using
 ```bash
-docker logs -f eoracle-data-validator
+docker logs -f data-validator
 ```
 
 #### Data Validator V1 logs
 
-The following example log messages confirm that your eOracle data validator software is up and running. Please ensure that your alias is declared and activated.
+The following example log messages confirm that your EO data validator software is up and running. Please ensure that your alias is declared and activated.
 
 ```sh
 2024-04-11 22:32:04 <1> 2024-04-11T19:32:04.467Z info:  Validator restarts on events: OnConfigChange
@@ -183,11 +183,11 @@ The following example log messages confirm that your eOracle data validator soft
 
 #### Data Validator V2 logs
 
-The following example log messages confirm that your eOracle data validator software is up and running. Please ensure that your alias is declared and activated.
+The following example log messages confirm that your EO data validator software is up and running. Please ensure that your alias is declared and activated.
 
 ```sh
 {"lvl":"INF","component":"validator","healthEndpointsPort":9000,"prometheusPort":9100,"dataPort":9200,"t":"2025-03-28T17:43:24.921","msg":"HTTP servers started"}
-{"lvl":"INF","component":"validator","configProvider":"0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9","registryContractAddress":"0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512","ovsAddresses":"HashSet\n0x5FC8d32690cc91D4c39d9d3abcBD16989F875707","mainAddress":"0x70997970C51812dc3A010C7d01b50e0d17dc79C8","keyStorePath":"/Users/michael-eoracle/Projects/core/go-datavalidator/.keystore","t":"2025-03-28T17:43:25.663","msg":"configProvider started"}
+{"lvl":"INF","component":"validator","configProvider":"0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9","registryContractAddress":"0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512","ovsAddresses":"HashSet\n0x5FC8d32690cc91D4c39d9d3abcBD16989F875707","mainAddress":"0x70997970C51812dc3A010C7d01b50e0d17dc79C8","keyStorePath":"***Projects/core/go-datavalidator/.keystore","t":"2025-03-28T17:43:25.663","msg":"configProvider started"}
 {"lvl":"INF","component":"validator","t":"2025-03-28T17:43:25.741","msg":"configProvider is running"}
 {"lvl":"INF","component":"validator","t":"2025-03-28T17:43:25.741","msg":"calling onSourcesChange"}
 {"lvl":"INF","component":"validator","t":"2025-03-28T17:43:25.741","msg":"initFeedsReporting started"}
@@ -223,18 +223,18 @@ The following example log messages confirm that your eOracle data validator soft
 {"lvl":"INF","reporter":"eochain","blockNumber":"6779","aggregatorAddress":"0x5FC8d32690cc91D4c39d9d3abcBD16989F875707","aggregatorReportsCount":1,"blockAppeared":"2025-03-28T17:43:33.904","txHash":"0x3540297cd201b02891f9a4faeed59e0b4d3e5e9c91af774ad644f434461d47bb","t":"2025-03-28T17:43:36.906","msg":"quotes reported"}
 ```
 
-### Stop eoracle data validator
+### Stop EO data validator
 To bring the containers down, run the following command
 ```bash
-cd Eoracle-operator-setup/data-validator
+cd operator-setup/data-validator
 docker compose down
 ```
 
-### Upgrade eoracle data validator
-1. Upgrade the AVS software for your eoracle data validator  by following the steps below:
+### Upgrade EO data validator
+1. Upgrade the AVS software for your EO data validator  by following the steps below:
 2. Pull the latest repo
 ```bash
-cd Eoracle-operator-setup
+cd operator-setup
 git pull
 ```
 3. Merge .env changes.
@@ -251,7 +251,7 @@ docker compose pull
 docker compose down
 ```
 6. Start your services again
-If any specific instructions need to be followed for any upgrade, those instructions will be given with the specific release notes. Please check the latest [release notes](https://github.com/Eoracle/Eoracle-operator-setup/releases) on Github and follow the instructions before starting the services again.
+If any specific instructions need to be followed for any upgrade, those instructions will be given with the specific release notes. Please check the latest [release notes](https://github.com/eodata/operator-setup/releases) on Github and follow the instructions before starting the services again.
 ```bash
 docker compose up -d
 ```
@@ -282,10 +282,10 @@ eoracle_health_check{avs_name="EoracleDataValidator", name="polygon.io"} 1
 ```
 
 ### Setup the monitoring stack 
-We use [prometheus](https://prometheus.io/download) to scrape the metrics from the eoracle data validator container.
-Make sure to edit the [prometheus.yml](data-validator/monitoring/prometheus.yml) file, located at Eoracle-operator-setup/data-validator/monitoring, replacing the placeholder 'PROMETHEUS_PORT' with the actual value specified in the data validator [.env](data-validator/.env) file (PROMETHEUS_PORT)
+We use [prometheus](https://prometheus.io/download) to scrape the metrics from the EO data validator container.
+Make sure to edit the [prometheus.yml](data-validator/monitoring/prometheus.yml) file, located at operator-setup/data-validator/monitoring, replacing the placeholder 'PROMETHEUS_PORT' with the actual value specified in the data validator [.env](data-validator/.env) file (PROMETHEUS_PORT)
 ```bash
-cd Eoracle-operator-setup/data-validator/monitoring
+cd operator-setup/data-validator/monitoring
 ```
 
 The relevant lines are:
@@ -294,7 +294,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 1m
     static_configs:
-      - targets: ['eoracle-data-validator:<EO_PROMETHEUS_PORT>']
+      - targets: ['data-validator:<EO_PROMETHEUS_PORT>']
 ```
 
 ### Start the monitoring stack
@@ -305,9 +305,9 @@ docker compose up -d
 ```
 
 ### Connect docker networks
-Since the eoracle data validator is running in a different docker network, we will need to have the Prometheus container in the same network of oracle-data-validator. To do that, run the following command. To do that, run the following command
+Since the EO data validator is running in a different docker network, we will need to have the Prometheus container in the same network of oracle-data-validator. To do that, run the following command. To do that, run the following command
 ```bash
-docker network connect eoracle-data-validator prometheus
+docker network connect data-validator prometheus
 ```
 
 ### Troubleshooting
@@ -318,7 +318,7 @@ docker network connect eoracle-data-validator prometheus
     Use the same command by prepending `sudo` in front of it.
 
 ### Grafana
-We use Grafana to visualize the metrics from the eoracle AVS.
+We use Grafana to visualize the metrics from the EO AVS.
 
 You can use [OSS Grafana](https://grafana.com/oss/grafana/) for it or any other Dashboard provider.
 
@@ -327,11 +327,11 @@ This container of Grafana has a Prometheus datasource setup using port 9090.  If
 You can do this by navigating to `http://<ip>:3000/datasources`
 
 ##### Useful Dashboards
-We also provide a set of useful Grafana dashboards which would be useful for monitoring the eoracle data validator service. You can find them [here](data-validator/dashboards).
+We also provide a set of useful Grafana dashboards which would be useful for monitoring the EO data validator service. You can find them [here](data-validator/dashboards).
 Once you have Grafana set up, feel free to import the dashboards.
 
 ### Node exporter
-eoracle data validator emits eoracle specific metrics but, it's also important to keep track of the node's health. For this, we will use [Node Exporter](https://prometheus.io/docs/guides/node-exporter/) which is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
+EO data validator emits EO specific metrics but, it's also important to keep track of the node's health. For this, we will use [Node Exporter](https://prometheus.io/docs/guides/node-exporter/) which is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
 By default, it is installed and started when you start the entire monitoring stack. If you want to modify the stack, you can install the binary or use docker to [run](https://hub.docker.com/r/prom/node-exporter).
 
 In Grafana dashboards screen, import the [node-exporter](dashboards/node-exporter.json) to see host metrics.
