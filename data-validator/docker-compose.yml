@@ -2,7 +2,7 @@ services:
   data-validator:
     env_file:
       - .env
-    container_name: data-validator
+    container_name: eo-data-validator
     ports:
       - ${EO_DATA_PORT}:${EO_DATA_PORT}
       - ${EO_PROMETHEUS_PORT}:${EO_PROMETHEUS_PORT}
