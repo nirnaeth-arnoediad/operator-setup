@@ -2,31 +2,31 @@ EO_REGISTRY_COORDINATOR=0xc4A6E362e8Bd89F28Eb405F9Aa533784884B9c4F
 EO_STAKE_REGISTRY=0xdda1a381920971642477CA79F5BFc1515414782d
 EO_AGGREGATOR_ADDRESS=0x6B0BE2aaD42612803c9Fc389A3806EF21E8cbDb6
 
-EO_OPERATOR_CLI_IMAGE=eoracle/opr_cli:v0.0.12
-EO_DATA_VALIDATOR_IMAGE=eoracle/data-validator:v2-latest
+EO_OPERATOR_CLI_IMAGE=eodata/opr_cli:v0.0.12
+EO_DATA_VALIDATOR_IMAGE=eodata/data-validator:v2-latest
 
 ETH_RPC_ENDPOINT=https://ethereum-holesky-rpc.publicnode.com
-EO_CHAIN_RPC_ENDPOINT=https://rpc.testnet.eoracle.network
-# eOracle chain web socket endpoint
-EO_CHAIN_WS_ENDPOINT=wss://rpc.testnet.eoracle.network/ws
+EO_CHAIN_RPC_ENDPOINT=https://rpc.testnet.eo.app
+# EO chain web socket endpoint
+EO_CHAIN_WS_ENDPOINT=wss://rpc.testnet.eo.app/ws
 
-# eOracle keystore path
+# EO keystore path
 EO_KEYSTORE_PATH=.keystore
-# [REQUIRED] eOracle private key passphrase
+# [REQUIRED] EO private key passphrase
 EO_PASSPHRASE=enterYourPassphraseHere
 
-# [REQUIRED] eOracle operator main address
+# [REQUIRED] EO operator main address
 EO_MAIN_ADDRESS=enterYourMainAddressHere
-# [REQUIRED] eOracle OVS key mapping as a mapping of wallet address used to sign transactions for the OVS,
+# [REQUIRED] EO OVS key mapping as a mapping of wallet address used to sign transactions for the OVS,
 # paired with their corresponding OVS address.
 # (example: 0xSignerWalletAddress1:0xOvsAddress1)
 EO_OVS_KEY_MAPPING=enterYourAliasAddressHere:0x530fCc836C42a803146d48be8Af295bA9756E266
 
-# eOracle data port
+# EO data port
 EO_DATA_PORT=10005
-# eOracle Prometheus port
+# EO Prometheus port
 EO_PROMETHEUS_PORT=10004
-# eOracle health endpoints port
+# EO health endpoints port
 EO_HEALTH_ENDPOINTS_PORT=10003
 
 # log level (available levels: TRC, DBG, INF, WRN, ERR, FTL, PNC) (default: "INF")
@@ -45,9 +45,9 @@ EO_LOG_OUT_PATH=./logs
 # use cat, tail, or less to read the logs
 #EO_LOG_FILE_NAME=$EO_LOG_OUT_PATH/data-validator.log
 
-# eOracle chain registry contract address
+# EO chain registry contract address
 EO_REGISTRY_ADDRESS=0x50D71ED6BDB562DCD1AEE725BE974B19B0B5DF7C
-# eOracle chain config contract address
+# EO chain config contract address
 EO_CONFIG_ADDRESS=0xa72c694e619dd339ab33415e07f0afc793555053
 
 # Endpoint of the Ethereum feed RPC (default: "wss://eth.llamarpc.com")

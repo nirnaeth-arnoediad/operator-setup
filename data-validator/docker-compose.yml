@@ -2,7 +2,7 @@ services:
   data-validator:
     env_file:
       - .env
-    container_name: eoracle-data-validator
+    container_name: eo-data-validator
     ports:
       - ${EO_DATA_PORT}:${EO_DATA_PORT}
       - ${EO_PROMETHEUS_PORT}:${EO_PROMETHEUS_PORT}
@@ -19,7 +19,7 @@ services:
     platform: linux/amd64
     restart: unless-stopped
     networks:
-      - eoracle-data-validator
+      - eo-data-validator
 networks:
-  eoracle-data-validator:
-    name: eoracle-data-validator
+  data-validator:
+    name: eo-data-validator
