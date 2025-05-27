@@ -1,4 +1,4 @@
-EO_OPERATOR_CLI_IMAGE=eodata/opr_cli:v0.0.12
+EO_OPERATOR_CLI_IMAGE=eodata/opr_cli:v0.0.17
 EO_DATA_VALIDATOR_IMAGE=eodata/data-validator:latest
 EO_CHAIN_RPC_ENDPOINT=https://rpc.eo.app
 EO_CHAIN_WS_ENDPOINT=wss://rpc.eo.app/ws
