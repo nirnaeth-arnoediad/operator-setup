@@ -2,7 +2,7 @@
 This guide will walk you through the process of registering as an operator to EO AVS and running the EO software.
 
 ## Prerequisites
-1. **Registered Eigenlayer Operator Account:** Ensure you have a fully registered Eigenlayer operator account. If you don't have one, follow the steps in the [Eigenlayer User Guide](https://docs.eigenlayer.xyz/restaking-guides/restaking-user-guide) to create and fund your account.
+1. **Registered Eigenlayer Operator Account:** Ensure you have a fully registered Eigenlayer operator account. If you don't have one, follow the steps in the [Eigenlayer User Guide](https://docs.eigencloud.xyz/products/eigenlayer/operators/howto/operator-installation) to create and fund your account.
 
 ## Software/Hardware Requirement 
 * Operating System: linux amd x64
